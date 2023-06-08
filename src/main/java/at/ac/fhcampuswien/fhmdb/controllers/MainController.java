@@ -26,6 +26,7 @@ public class MainController {
     private BorderPane mainPane;
 
     private boolean isMenuCollapsed = true;
+    MyFactory myFactory = new MyFactory();
 
     private HamburgerBasicCloseTransition transition;
 
@@ -65,7 +66,9 @@ public class MainController {
     }
 
     public void setContent(String fxmlPath){
+
         FXMLLoader loader = new FXMLLoader(MainController.class.getResource(fxmlPath));
+        //loader.setControllerFactory(myFactory);
         try {
             mainPane.setCenter(loader.load());
         } catch (Exception e) {
