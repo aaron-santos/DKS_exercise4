@@ -1,5 +1,6 @@
-package at.ac.fhcampuswien.fhmdb.models;
+package at.ac.fhcampuswien.fhmdb.StatePattern;
 
+import at.ac.fhcampuswien.fhmdb.models.Movie;
 import javafx.collections.ObservableList;
 
 import java.util.List;

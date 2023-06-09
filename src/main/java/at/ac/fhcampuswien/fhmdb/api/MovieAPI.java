@@ -1,5 +1,6 @@
 package at.ac.fhcampuswien.fhmdb.api;
 
+import at.ac.fhcampuswien.fhmdb.BuilderPattern.MovieAPIRequestBuilder;
 import at.ac.fhcampuswien.fhmdb.models.Genre;
 import at.ac.fhcampuswien.fhmdb.models.Movie;
 import okhttp3.*;
@@ -7,7 +8,6 @@ import com.google.gson.Gson;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
-import java.util.UUID;
 
 public class MovieAPI {
     private static final String URL = "http://prog2.fh-campuswien.ac.at/movies"; // https if certificates work

@@ -1,6 +1,9 @@
 package at.ac.fhcampuswien.fhmdb.controllers;
 
 import at.ac.fhcampuswien.fhmdb.ClickEventHandler;
+import at.ac.fhcampuswien.fhmdb.StatePattern.AscendingState;
+import at.ac.fhcampuswien.fhmdb.StatePattern.DescendingState;
+import at.ac.fhcampuswien.fhmdb.StatePattern.MovieSorter;
 import at.ac.fhcampuswien.fhmdb.api.MovieAPI;
 import at.ac.fhcampuswien.fhmdb.api.MovieApiException;
 import at.ac.fhcampuswien.fhmdb.database.DataBaseException;
@@ -21,7 +24,6 @@ import javafx.scene.control.TextField;
 
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 import java.util.ResourceBundle;
 

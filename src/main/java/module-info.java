@@ -16,4 +16,8 @@ module at.ac.fhcampuswien.fhmdb {
     exports at.ac.fhcampuswien.fhmdb;
     exports at.ac.fhcampuswien.fhmdb.controllers;
     opens at.ac.fhcampuswien.fhmdb.controllers to javafx.fxml;
+    exports at.ac.fhcampuswien.fhmdb.FactoryPattern;
+    opens at.ac.fhcampuswien.fhmdb.FactoryPattern to javafx.fxml;
+    exports at.ac.fhcampuswien.fhmdb.StatePattern;
+    opens at.ac.fhcampuswien.fhmdb.StatePattern to com.google.gson;
 }
