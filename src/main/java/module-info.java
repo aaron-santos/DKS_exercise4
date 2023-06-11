@@ -16,10 +16,10 @@ module at.ac.fhcampuswien.fhmdb {
     exports at.ac.fhcampuswien.fhmdb;
     exports at.ac.fhcampuswien.fhmdb.controllers;
     opens at.ac.fhcampuswien.fhmdb.controllers to javafx.fxml;
-    exports at.ac.fhcampuswien.fhmdb.FactoryPattern;
-    opens at.ac.fhcampuswien.fhmdb.FactoryPattern to javafx.fxml;
-    exports at.ac.fhcampuswien.fhmdb.StatePattern;
-    opens at.ac.fhcampuswien.fhmdb.StatePattern to com.google.gson;
+    exports at.ac.fhcampuswien.fhmdb.factoryPattern;
+    opens at.ac.fhcampuswien.fhmdb.factoryPattern to javafx.fxml;
+    exports at.ac.fhcampuswien.fhmdb.statePattern;
+    opens at.ac.fhcampuswien.fhmdb.statePattern to com.google.gson;
     exports at.ac.fhcampuswien.fhmdb.enums;
     opens at.ac.fhcampuswien.fhmdb.enums to com.google.gson;
 }

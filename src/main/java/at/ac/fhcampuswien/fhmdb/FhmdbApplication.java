@@ -1,6 +1,6 @@
 package at.ac.fhcampuswien.fhmdb;
 
-import at.ac.fhcampuswien.fhmdb.FactoryPattern.MyFactory;
+import at.ac.fhcampuswien.fhmdb.factoryPattern.MyFactory;
 import at.ac.fhcampuswien.fhmdb.controllers.MainController;
 import at.ac.fhcampuswien.fhmdb.enums.UIComponent;
 import javafx.application.Application;

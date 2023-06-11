@@ -1,6 +1,6 @@
 package at.ac.fhcampuswien.fhmdb.controllers;
 
-import at.ac.fhcampuswien.fhmdb.FactoryPattern.MyFactory;
+import at.ac.fhcampuswien.fhmdb.factoryPattern.MyFactory;
 import at.ac.fhcampuswien.fhmdb.enums.UIComponent;
 import at.ac.fhcampuswien.fhmdb.models.Movie;
 import com.jfoenix.controls.*;

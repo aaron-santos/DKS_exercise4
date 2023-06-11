@@ -1,7 +1,7 @@
 package at.ac.fhcampuswien.fhmdb.database;
 
-import at.ac.fhcampuswien.fhmdb.observer.Observable;
-import at.ac.fhcampuswien.fhmdb.observer.Observer;
+import at.ac.fhcampuswien.fhmdb.observerPattern.Observable;
+import at.ac.fhcampuswien.fhmdb.observerPattern.Observer;
 import com.j256.ormlite.dao.Dao;
 
 import java.util.ArrayList;

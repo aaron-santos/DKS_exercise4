@@ -1,6 +1,6 @@
 package at.ac.fhcampuswien.fhmdb.api;
 
-import at.ac.fhcampuswien.fhmdb.BuilderPattern.MovieAPIRequestBuilder;
+import at.ac.fhcampuswien.fhmdb.builderPattern.MovieAPIRequestBuilder;
 import at.ac.fhcampuswien.fhmdb.models.Genre;
 import at.ac.fhcampuswien.fhmdb.models.Movie;
 import okhttp3.*;
@@ -13,8 +13,6 @@ public class MovieAPI {
     private static final String URL = "http://prog2.fh-campuswien.ac.at/movies"; // https if certificates work
     private static final OkHttpClient client = new OkHttpClient();
     //test
-
-
 
     public static List<Movie> getAllMovies() throws MovieApiException {
         return getAllMovies(null, null, null, null);
@@ -46,6 +44,4 @@ public class MovieAPI {
             throw new MovieApiException(e.getMessage());
         }
     }
-
-
 }

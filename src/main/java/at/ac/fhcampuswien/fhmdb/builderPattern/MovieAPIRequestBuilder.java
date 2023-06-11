@@ -1,4 +1,4 @@
-package at.ac.fhcampuswien.fhmdb.BuilderPattern;
+package at.ac.fhcampuswien.fhmdb.builderPattern;
 
 import at.ac.fhcampuswien.fhmdb.models.Genre;
 
@@ -10,8 +10,6 @@ public class MovieAPIRequestBuilder {
     public MovieAPIRequestBuilder(String url) {
         sb = new StringBuilder(url);
     }
-
-
     public MovieAPIRequestBuilder query(String query) {
         if (query != null && !query.isEmpty()) {
             if (!isParamSet()) {
@@ -21,7 +19,6 @@ public class MovieAPIRequestBuilder {
         }
         return this;
     }
-
     public MovieAPIRequestBuilder genre(Genre genre) {
         if (genre != null) {
             if (!isParamSet()) {
@@ -31,9 +28,6 @@ public class MovieAPIRequestBuilder {
         }
         return this;
     }
-
-
-
     public MovieAPIRequestBuilder releaseYear(String releaseYear) {
         if (releaseYear != null) {
             if (!isParamSet()) {
@@ -52,7 +46,6 @@ public class MovieAPIRequestBuilder {
         }
         return this;
     }
-
     public String build() {
         return sb.toString();
     }

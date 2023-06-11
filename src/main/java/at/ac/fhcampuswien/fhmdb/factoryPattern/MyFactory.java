@@ -1,10 +1,7 @@
-package at.ac.fhcampuswien.fhmdb.FactoryPattern;
+package at.ac.fhcampuswien.fhmdb.factoryPattern;
 
 
 import javafx.util.Callback;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class MyFactory implements Callback<Class<?>, Object> {
 

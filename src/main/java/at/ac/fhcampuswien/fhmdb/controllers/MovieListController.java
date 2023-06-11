@@ -1,9 +1,9 @@
 package at.ac.fhcampuswien.fhmdb.controllers;
 
 import at.ac.fhcampuswien.fhmdb.ClickEventHandler;
-import at.ac.fhcampuswien.fhmdb.StatePattern.AscendingState;
-import at.ac.fhcampuswien.fhmdb.StatePattern.DescendingState;
-import at.ac.fhcampuswien.fhmdb.StatePattern.MovieSorter;
+import at.ac.fhcampuswien.fhmdb.statePattern.AscendingState;
+import at.ac.fhcampuswien.fhmdb.statePattern.DescendingState;
+import at.ac.fhcampuswien.fhmdb.statePattern.MovieSorter;
 import at.ac.fhcampuswien.fhmdb.api.MovieAPI;
 import at.ac.fhcampuswien.fhmdb.api.MovieApiException;
 import at.ac.fhcampuswien.fhmdb.database.DataBaseException;
@@ -11,7 +11,8 @@ import at.ac.fhcampuswien.fhmdb.database.WatchlistMovieEntity;
 import at.ac.fhcampuswien.fhmdb.database.WatchlistRepository;
 import at.ac.fhcampuswien.fhmdb.enums.SortedState;
 import at.ac.fhcampuswien.fhmdb.models.*;
-import at.ac.fhcampuswien.fhmdb.observer.Observer;
+import at.ac.fhcampuswien.fhmdb.observerPattern.Observer;
+import at.ac.fhcampuswien.fhmdb.statePattern.UnsortedState;
 import at.ac.fhcampuswien.fhmdb.ui.MovieCell;
 import at.ac.fhcampuswien.fhmdb.ui.UserDialog;
 import com.jfoenix.controls.JFXButton;
@@ -148,13 +149,16 @@ public class MovieListController implements Initializable, Observer {
         observableMovies.addAll(movies);
     }
     public void sortMovies(){
-        if (sortedState == SortedState.NONE || sortedState == SortedState.DESCENDING) {
-           // sortMovies(SortedState.ASCENDING);
+        if(movieSorter.getState() instanceof UnsortedState || movieSorter.getState() instanceof DescendingState) {
+            //if (sortedState == SortedState.NONE || sortedState == SortedState.DESCENDING) {
+            // sortMovies(SortedState.ASCENDING);
             movieSorter.setState(new AscendingState());
             movieSorter.sortMovies(observableMovies);
             sortedState = SortedState.ASCENDING;
-        } else if (sortedState == SortedState.ASCENDING) {
-           // sortMovies(SortedState.DESCENDING);
+        }
+        else if (movieSorter.getState() instanceof AscendingState) {
+            //} else if (sortedState == SortedState.ASCENDING) {
+            // sortMovies(SortedState.DESCENDING);
             movieSorter.setState(new DescendingState());
             movieSorter.sortMovies(observableMovies);
             sortedState = SortedState.DESCENDING;
