@@ -11,6 +11,7 @@ import at.ac.fhcampuswien.fhmdb.database.WatchlistMovieEntity;
 import at.ac.fhcampuswien.fhmdb.database.WatchlistRepository;
 import at.ac.fhcampuswien.fhmdb.enums.SortedState;
 import at.ac.fhcampuswien.fhmdb.models.*;
+import at.ac.fhcampuswien.fhmdb.observer.Observer;
 import at.ac.fhcampuswien.fhmdb.ui.MovieCell;
 import at.ac.fhcampuswien.fhmdb.ui.UserDialog;
 import com.jfoenix.controls.JFXButton;
@@ -21,6 +22,8 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 
 import java.net.URL;
@@ -28,7 +31,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class MovieListController implements Initializable {
+public class MovieListController implements Initializable, Observer {
     @FXML
     public JFXButton searchBtn;
 
@@ -83,6 +86,11 @@ public class MovieListController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         initializeState();
         initializeLayout();
+        try {
+            WatchlistRepository.getInstance().registerObserver(this);
+        } catch (DataBaseException e) {
+            e.printStackTrace();
+        }
     }
 
     public void initializeState() {
@@ -248,5 +256,14 @@ public class MovieListController implements Initializable {
 
     public void sortBtnClicked(ActionEvent actionEvent) {
         sortMovies();
+    }
+
+    @Override
+    public void update(String message) {
+        if (message.equals("Movie added successfully")) {
+            new Alert(Alert.AlertType.NONE, message, ButtonType.OK).show();
+        } else if (message.equals("Movie is already in Watchlist")) {
+            new Alert(Alert.AlertType.NONE, message, ButtonType.OK).show();
+        }
     }
 }
