@@ -12,6 +12,7 @@ import java.util.Objects;
 public class MovieAPI {
     private static final String URL = "http://prog2.fh-campuswien.ac.at/movies"; // https if certificates work
     private static final OkHttpClient client = new OkHttpClient();
+    //test
 
 
 
