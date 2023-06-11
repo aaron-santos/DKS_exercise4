@@ -8,38 +8,34 @@ import java.util.Map;
 
 public class MyFactory implements Callback<Class<?>, Object> {
 
-    private final Map<Class<?>, Object> controllerInstanceMap;
     //MainController.class -> new MainController()
     //MovieController.class -> new MovieController()
     //MainController.class -> new MainController()
 
-    public MyFactory(){
-        controllerInstanceMap = new HashMap<>();
+    private static MyFactory instance;
+
+    private MyFactory() {
+
     }
 
+    public static MyFactory getInstance() {
+        if (instance == null) {
+            instance = new MyFactory();
+        }
+        return instance;
+    }
 
         @Override
         //returns singleton instance of controller, because it is not possible to implement singleton in javafx
         public Object call(Class<?> aClass) {
-            //System.out.println("call");
-
-            if (controllerInstanceMap.containsKey(aClass)) {
-               // System.out.println("already exist");
-                Object instance = controllerInstanceMap.get(aClass);
-                return instance;
-            } else {
-                try {
-                //    System.out.println("new instance");
-                    Object instance = aClass.getDeclaredConstructor().newInstance();
-                    controllerInstanceMap.put(aClass, instance);
-                    return instance;
-
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    return null;
-                }
+            try{
+                return aClass.getDeclaredConstructor().newInstance();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
+            return null;
         }
-    }
+
+}
 
 
