@@ -7,7 +7,7 @@ import java.util.Comparator;
 
 public class AscendingState implements MovieSorterState {
 
-    public void sort(ObservableList<Movie> movielist) {
-        movielist.sort(Comparator.comparing(Movie::getTitle));
+    public void sort(ObservableList<Movie> movieList) {
+        movieList.sort(Comparator.comparing(Movie::getTitle));
     }
 }

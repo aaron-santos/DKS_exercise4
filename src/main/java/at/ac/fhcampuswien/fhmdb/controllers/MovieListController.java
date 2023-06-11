@@ -9,6 +9,7 @@ import at.ac.fhcampuswien.fhmdb.api.MovieApiException;
 import at.ac.fhcampuswien.fhmdb.database.DataBaseException;
 import at.ac.fhcampuswien.fhmdb.database.WatchlistMovieEntity;
 import at.ac.fhcampuswien.fhmdb.database.WatchlistRepository;
+import at.ac.fhcampuswien.fhmdb.enums.SortedState;
 import at.ac.fhcampuswien.fhmdb.models.*;
 import at.ac.fhcampuswien.fhmdb.ui.MovieCell;
 import at.ac.fhcampuswien.fhmdb.ui.UserDialog;
@@ -153,7 +154,7 @@ public class MovieListController implements Initializable {
     }
     // sort movies based on sortedState
     // by default sorted state is NONE
-    // afterwards it switches between ascending and descending
+    // afterward, it switches between ascending and descending
    /* public void sortMovies(SortedState sortDirection) {
         if (sortDirection == SortedState.ASCENDING) {
             observableMovies.sort(Comparator.comparing(Movie::getTitle));

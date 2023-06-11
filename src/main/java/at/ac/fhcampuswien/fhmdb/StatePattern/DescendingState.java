@@ -6,7 +6,7 @@ import javafx.collections.ObservableList;
 import java.util.Comparator;
 
 public class DescendingState implements MovieSorterState {
-    public void sort(ObservableList<Movie> movielist) {
-        movielist.sort(Comparator.comparing(Movie::getTitle).reversed());
+    public void sort(ObservableList<Movie> movieList) {
+        movieList.sort(Comparator.comparing(Movie::getTitle).reversed());
     }
 }

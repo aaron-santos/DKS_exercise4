@@ -10,19 +10,19 @@ public class WatchlistRepository {
 
     private static WatchlistRepository instance;
 
-    public static WatchlistRepository getInstance() throws DataBaseException {
-        if(instance == null) {
-            instance = new WatchlistRepository();
-        }
-        return instance;
-    }
-
     private WatchlistRepository() throws DataBaseException {
         try {
             this.dao = DatabaseManager.getInstance().getWatchlistDao();
         } catch (Exception e) {
             throw new DataBaseException(e.getMessage());
         }
+    }
+
+    public static WatchlistRepository getInstance() throws DataBaseException {
+        if(instance == null) {
+            instance = new WatchlistRepository();
+        }
+        return instance;
     }
 
     public List<WatchlistMovieEntity> readWatchlist() throws DataBaseException {
@@ -33,6 +33,7 @@ public class WatchlistRepository {
             throw new DataBaseException("Error while reading watchlist");
         }
     }
+
     public void addToWatchlist(WatchlistMovieEntity movie) throws DataBaseException {
         try {
             // only add movie if it does not exist yet

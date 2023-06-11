@@ -20,4 +20,6 @@ module at.ac.fhcampuswien.fhmdb {
     opens at.ac.fhcampuswien.fhmdb.FactoryPattern to javafx.fxml;
     exports at.ac.fhcampuswien.fhmdb.StatePattern;
     opens at.ac.fhcampuswien.fhmdb.StatePattern to com.google.gson;
+    exports at.ac.fhcampuswien.fhmdb.enums;
+    opens at.ac.fhcampuswien.fhmdb.enums to com.google.gson;
 }

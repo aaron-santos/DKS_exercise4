@@ -19,9 +19,7 @@ public class MovieSorter {
         return state;
     }
 
-    public void sortMovies(ObservableList<Movie> movielist){
-        state.sort(movielist);
+    public void sortMovies(ObservableList<Movie> movieList){
+        state.sort(movieList);
     }
-
-
 }

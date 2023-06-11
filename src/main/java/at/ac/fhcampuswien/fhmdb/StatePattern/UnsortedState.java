@@ -5,7 +5,7 @@ import javafx.collections.ObservableList;
 
 public class UnsortedState implements MovieSorterState {
 
-    public void sort(ObservableList<Movie> movielist) {
+    public void sort(ObservableList<Movie> movieList) {
 
     }
 }
